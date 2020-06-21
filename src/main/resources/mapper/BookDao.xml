@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huation.dao.BookDao">
+    <sql id="all_column">
+      `bookId`,
+      `name`,
+      `number`
+    </sql>
+
+    <insert id="addBook">
+      insert into book(
+      `name`,
+      `number`
+      ) values (
+      #{pojo.name},
+      #{pojo.number}
+      )
+    </insert>
+
+    <select id="queryAll" resultType="com.huation.entry.Book">
+        select <include refid="all_column"/>
+        from book
+    </select>
+
+
+</mapper>
