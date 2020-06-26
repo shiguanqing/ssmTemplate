@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BookService {
     /**
-     * 通过Id查询指定图书
+     * 根据图书Id查询图书
      * @param id
      * @return
      */

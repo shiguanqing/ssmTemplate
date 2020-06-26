@@ -17,26 +17,26 @@ public class TestMybatis
 {
     @Test
     public void fun1() throws Exception {
-        // 加载配置文件
+        // load xml property file
         InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
 
-        // 创建SqlSessionFactory对象
+        // create SqlSessionFactory
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
 
-        // 创建salSession对象
+        // create salSession
         SqlSession sqlSession = factory.openSession();
 
-        // 获取代理对象
+        // get proxy object
         BookDao bookDao = sqlSession.getMapper(BookDao.class);
 
-        // 查询所有数据
+        // query all books
         List<Book> books = bookDao.queryAll();
         for (Book book: books)
         {
             System.out.println(book);
         }
 
-        // 关闭资源
+        // close resources
         sqlSession.close();
 
         in.close();
